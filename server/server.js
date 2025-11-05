@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173 ",
+    origin: process.env.FRONTEND_URL || "https://mern-stack-oauth-image-search-2h8d.onrender.com",
     credentials: true,
   })
 );
