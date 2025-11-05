@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BACKEND = import.meta.env.VITE_BACKEND_URL || "https://mern-stack-oauth-image-search.onrender.com";
 
 const api = axios.create({
   baseURL: BACKEND + "/api",
