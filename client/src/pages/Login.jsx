@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider.jsx";
 
 export default function Login() {
-  const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+  const BACKEND = import.meta.env.VITE_BACKEND_URL || "https://mern-stack-oauth-image-search.onrender.com";
   const { user, loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
