@@ -19,6 +19,7 @@ connectDB();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "https://mern-stack-oauth-image-search-2h8d.onrender.com",
@@ -31,7 +32,12 @@ app.use(
     secret: process.env.SESSION_SECRET || "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 },
+    cookie: {
+      secure: true,         
+      httpOnly: true,
+      sameSite: 'none',      
+      maxAge: 1000 * 60 * 60 * 24 * 7
+    },
   })
 );
 
