@@ -13,6 +13,8 @@ router.get(
     session: true,
   }),
   (req, res) => {
+        req.session.touch();       
+
     res.redirect(process.env.FRONTEND_URL || "/");
   }
 );
@@ -27,6 +29,8 @@ router.get(
     session: true,
   }),
   (req, res) => {
+        req.session.touch();      
+
     res.redirect(process.env.FRONTEND_URL || "/");
   }
 );
