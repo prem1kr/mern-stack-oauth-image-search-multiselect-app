@@ -24,7 +24,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL, 
+    origin: process.env.FRONTEND_URL || "https://mern-stack-oauth-image-search-2h8d.onrender.com", 
     credentials: true,
   })
 );
