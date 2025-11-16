@@ -20,22 +20,24 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const isProd = process.env.NODE_ENV === "production";
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "https://mern-stack-oauth-image-search-2h8d.onrender.com",
+    origin: process.env.FRONTEND_URL, 
     credentials: true,
   })
 );
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "keyboard cat",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true,         
+      secure: isProd,
       httpOnly: true,
-      sameSite: 'none',      
+      sameSite: isProd ? 'none' : 'lax',
       maxAge: 1000 * 60 * 60 * 24 * 7
     },
   })
