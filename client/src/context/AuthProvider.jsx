@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await api.get("/auth/user");
+      const res = await api.get("/auth/user", { withCredentials: true });
       if (res.data?.success) {
         setUser(res.data.user);
       } else {
